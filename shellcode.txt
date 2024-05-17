@@ -1,0 +1,109 @@
+>>> from taskapp.models import Author, Book, Reader
+>>> from django.db.models import Sum
+>>> authors = Author.objects.all()
+>>> books = Book.objects.all()
+>>> readers = Reader.objects.all()
+>>> print(authors)
+or.objects.create(name='Jane Smith')
+print(new_author)
+
+new_book = Book.objects.create(title='Sample Book', author=new_author, published_date='2024-01-01', price=19.99)
+print(new_book)
+
+new_reader = Reader.objects.create(name='Alice Johnson')
+print(n<QuerySet []>
+>>> print(books)
+ew_reader)
+
+author = Author.objects.get(name='Jane<QuerySet []>
+>>> print(readers)
+<QuerySet [<Reader: Alice Johnson>, <Reader: Alice Johnson>, <Reader: Alice Johnson>, <Reader: Alice Johnson>, <Reader: Alice Johnson>]>
+>>> 
+>>> new_author = Author.objects.create(name='Jane Smith')
+ Smith')
+author_books = author.books.all()
+print(author_books)
+
+book = Book.objects.filter(title='Sample Book').first()  # Using filter and first() to handle potential non-existence
+if book:
+    book_readers = book.readers.all()
+    print(book_readers)
+
+author_to_update = Author.objects.get(name='Jane Smith')
+author_to_update.name = 'Jane Doe'
+author_to_update.save()
+print(author_to_update)
+
+book_to_update = Book.objects.filter(title='Sample Book>>> print(new_author)
+Jane Smith
+>>> 
+>>> new_book = Book.objects.create(title='Sample Book', author=new_author, published_date='2024-01-01', price=19.99)
+').first()  # Using filter and first() to handle potential non-existence
+if book_to_update:
+    book>>> print(new_book)
+Sample Book
+>>> 
+>>> new_reader = Reader.objects.create(name='Alice Johnson')
+_to_update.price = 29.99
+    book_to_update.save()
+    print(book_to_update)
+
+author_to_delete = Aut>>> print(new_reader)
+Alice Johnson
+>>> 
+>>> author = Author.objects.get(name='Jane Smith')
+>>> author_books = author.books.all()
+>>> print(author_books)
+hor.objects.filter(name='Jane Doe').first()  # Usi<QuerySet [<Book: Sample Book>]>
+>>> 
+>>> book = Book.objects.filter(title='Sample Book').first()  # Using filter and first() to handle potential non-existence
+ng filter and first() to handle potential non-exis>>> if book:
+...     book_readers = book.readers.all()
+...     print(book_readers)
+... 
+tence
+if author_to_delete:
+    author_to_delete.de<QuerySet []>
+>>> author_to_update = Author.objects.get(name='Jane Smith')
+lete()
+    print("Author deleted")
+
+book_to_delete>>> author_to_update.name = 'Jane Doe'
+>>> author_to_update.save()
+ = Book.objects.filter(title='Sample Book').first()  # Using filter and first() to handle potential non-existence
+if book_to_delete:
+    book_to_delet>>> print(author_to_update)
+Jane Doe
+>>> 
+>>> book_to_update = Book.objects.filter(title='Sample Book').first()  # Using filter and first() to handle potential non-existence
+>>> if book_to_update:
+...     book_to_update.price = 29.99
+...     book_to_update.save()
+...     print(book_to_update)
+... 
+e.delete()
+    print("Book deleted")
+
+total_books = Book.objects.count()
+print(total_books)
+
+total_price = Book.objects.aggregate(total_price=Sum('priSample Book
+>>> author_to_delete = Author.objects.filter(name='Jane Doe').first()  # Using filter and first() to handle potential non-existence
+>>> if author_to_delete:
+...     author_to_delete.delete()
+...     print("Author deleted")
+... 
+(2, {'taskapp.Book': 1, 'taskapp.Author': 1})
+Author deleted
+>>> book_to_delete = Book.objects.filter(title='Sample Book').first()  # Using filter and first() to handle potential non-existence
+>>> if book_to_delete:
+...     book_to_delete.delete()
+...     print("Book deleted")
+... 
+>>> total_books = Book.objects.count()
+>>> print(total_books)
+0
+>>> 
+>>> total_price = Book.objects.aggregate(total_price=Sum('price'))
+>>> print(total_price)
+{'total_price': None}
